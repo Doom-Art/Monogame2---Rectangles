@@ -10,7 +10,14 @@ namespace Monogame2___Rectangles
         private SpriteBatch _spriteBatch;
         private Texture2D circleTexture;
         private Texture2D rectangleTexture;
-        private Rectangle circRect = new Rectangle(100, 100, 40, 40);
+        private Rectangle redGrayRect;
+        private Rectangle yellowGrayRect;
+        private Rectangle greenGrayRect;
+        private Rectangle redRect;
+        private Rectangle yellowRect;
+        private Rectangle greenRect;
+        private Rectangle topTrafficRect;
+        private Rectangle bottomTrafficRect;
 
         public Game1()
         {
@@ -21,6 +28,14 @@ namespace Monogame2___Rectangles
 
         protected override void Initialize()
         {
+            redGrayRect = new Rectangle(100, 100, 40, 40);
+            yellowGrayRect = new Rectangle(100, 200, 40, 40);
+            greenGrayRect = new Rectangle(100, 150, 40, 40);
+            redRect = new Rectangle(101, 101, 38, 38);
+            yellowRect = new Rectangle(101, 201, 38, 38);
+            greenRect = new Rectangle(101, 151, 38, 38);
+            topTrafficRect = new Rectangle(99, 96, 42, 150);
+            bottomTrafficRect = new Rectangle(110, 246, 21, 250);
             // TODO: Add your initialization logic here
             _graphics.PreferredBackBufferWidth = (800);
             _graphics.PreferredBackBufferHeight = 500;
@@ -51,11 +66,14 @@ namespace Monogame2___Rectangles
         {
             GraphicsDevice.Clear(Color.SeaShell);
             _spriteBatch.Begin();
-            _spriteBatch.Draw(rectangleTexture, new Rectangle(99, 99, 42, 150), Color.Black);
-            _spriteBatch.Draw(circleTexture, circRect, Color.Red);
-            _spriteBatch.Draw(circleTexture, new Rectangle(100, 200, 40, 40), Color.Yellow);
-            _spriteBatch.Draw(circleTexture, new Rectangle(100, 150, 40, 40), Color.Green);
-            _spriteBatch.Draw(rectangleTexture, new Rectangle(110, 249, 21, 150), Color.Black);
+            _spriteBatch.Draw(rectangleTexture, topTrafficRect, Color.Black);
+            _spriteBatch.Draw(circleTexture, redGrayRect, Color.Gray);
+            _spriteBatch.Draw(circleTexture, yellowGrayRect, Color.Gray);
+            _spriteBatch.Draw(circleTexture, greenGrayRect, Color.Gray);
+            _spriteBatch.Draw(circleTexture, redRect, Color.Red);
+            _spriteBatch.Draw(circleTexture, yellowRect, Color.Yellow);
+            _spriteBatch.Draw(circleTexture, greenRect, Color.Green);
+            _spriteBatch.Draw(rectangleTexture, bottomTrafficRect, Color.Black);
             _spriteBatch.End();
             // TODO: Add your drawing code here
 
