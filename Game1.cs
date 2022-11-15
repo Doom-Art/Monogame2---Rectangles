@@ -18,6 +18,7 @@ namespace Monogame2___Rectangles
         private Rectangle greenRect;
         private Rectangle topTrafficRect;
         private Rectangle bottomTrafficRect;
+        SpriteFont title;
 
         public Game1()
         {
@@ -37,6 +38,8 @@ namespace Monogame2___Rectangles
             topTrafficRect = new Rectangle(99, 96, 42, 150);
             bottomTrafficRect = new Rectangle(110, 246, 21, 250);
             // TODO: Add your initialization logic here
+
+            this.Window.Title = "Traffic Light";
             _graphics.PreferredBackBufferWidth = (800);
             _graphics.PreferredBackBufferHeight = 500;
             _graphics.ApplyChanges();
@@ -48,7 +51,7 @@ namespace Monogame2___Rectangles
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             circleTexture = Content.Load <Texture2D>("circle");
             rectangleTexture = Content.Load<Texture2D>("rectangle");
-
+            title = Content.Load<SpriteFont>("milkyHoneyFont");
             // TODO: use this.Content to load your game content here
         }
 
@@ -64,7 +67,7 @@ namespace Monogame2___Rectangles
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.SeaShell);
+            GraphicsDevice.Clear(Color.Turquoise);
             _spriteBatch.Begin();
             _spriteBatch.Draw(rectangleTexture, topTrafficRect, Color.Black);
             _spriteBatch.Draw(circleTexture, redGrayRect, Color.Gray);
@@ -74,6 +77,7 @@ namespace Monogame2___Rectangles
             _spriteBatch.Draw(circleTexture, yellowRect, Color.Yellow);
             _spriteBatch.Draw(circleTexture, greenRect, Color.Green);
             _spriteBatch.Draw(rectangleTexture, bottomTrafficRect, Color.Black);
+            _spriteBatch.DrawString(title, "Traffic Light", new Vector2(300, 200), Color.Violet);
             _spriteBatch.End();
             // TODO: Add your drawing code here
 
